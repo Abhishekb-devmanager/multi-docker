@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t Abhishekb-devmanager/react-test -f ./client/Dockerfile.dev .
+  - docker build -t abhishekb-devmanager/react-test -f ./client/Dockerfile.dev .
 
 script:
-  - docker run Abhishekb-devmanager/react-test npm test -- --coverage
+  - docker run abhishekb-devmanager/react-test npm test -- --coverage
 
 after_install:
   - docker build -t abhishekb-devmanager/multi-nginx ./nginx
