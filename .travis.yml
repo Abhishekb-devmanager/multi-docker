@@ -8,7 +8,7 @@ before_install:
 script:
   - docker run -e CI=true abhishekb-devmanager/react-test npm test 
 
-after_install:
+after_success:
   - docker build -t abhishekb-devmanager/multi-nginx ./nginx
   - docker build -t abhishekb-devmanager/multi-server ./server
   - docker build -t abhishekb-devmanager/multi-worker ./worker
