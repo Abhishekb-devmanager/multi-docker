@@ -3,20 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t abhishekb-devmanager/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t abhishek1984/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true abhishekb-devmanager/react-test npm test 
+  - docker run -e CI=true abhishek1984/react-test npm test 
 
 after_success:
-  - docker build -t abhishekb-devmanager/multi-nginx ./nginx
-  - docker build -t abhishekb-devmanager/multi-server ./server
-  - docker build -t abhishekb-devmanager/multi-worker ./worker
-  - docker build -t abhishekb-devmanager/multi-client ./client
+  - docker build -t abhishek1984/multi-nginx ./nginx
+  - docker build -t abhishek1984/multi-server ./server
+  - docker build -t abhishek1984/multi-worker ./worker
+  - docker build -t abhishek1984/multi-client ./client
 # Login docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Make images and push to docker hub
-  - docker push abhishekb-devmanager/multi-nginx 
-  - docker push abhishekb-devmanager/multi-server
-  - docker push abhishekb-devmanager/multi-worker
-  - docker push abhishekb-devmanager/multi-client
+  - docker push abhishek1984/multi-nginx 
+  - docker push abhishek1984/multi-server
+  - docker push abhishek1984/multi-worker
+  - docker push abhishek1984/multi-client
