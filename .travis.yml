@@ -1,0 +1,22 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t Abhishekb-devmanager/react-test -f ./client/Dockerfile.dev .
+
+script:
+  - docker run Abhishekb-devmanager/react-test npm test -- --coverage
+
+after_install:
+  - docker build -t Abhishekb-devmanager/multi-nginx ./nginx
+  - docker build -t Abhishekb-devmanager/multi-server ./server
+  - docker build -t Abhishekb-devmanager/multi-worker ./worker
+  - docker build -t Abhishekb-devmanager/multi-client ./client
+# Login docker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+# Make images and push to docker hub
+  - docker push AAbhishekb-devmanager/multi-nginx
+  - docker push Abhishekb-devmanager/multi-server
+  - docker push Abhishekb-devmanager/multi-worker
+  - docker push Abhishekb-devmanager/multi-client
