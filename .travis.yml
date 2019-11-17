@@ -22,7 +22,7 @@ after_success:
   - docker push abhishek1984/multi-client
 
 deploy:
-  edge: true #forcing travis to use v2 of deployment script #fix to missing bucket name error in travis.
+  edge: true 
   provider: elasticbeanstalk
   region: us-east-2
   app: multi-docker
