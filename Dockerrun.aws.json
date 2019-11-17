@@ -4,7 +4,7 @@
         {
             "name":"client",
             "image":"abhishek1984/multi-client",
-            "container":"client",
+            "hostname":"client",
             "essential": false,
             "memory": 128
 
@@ -12,7 +12,7 @@
         {
             "name":"server",
             "image":"abhishek1984/multi-server",
-            "container":"api",
+            "hostname":"api",
             "essential": false,
             "memory": 128
 
@@ -20,14 +20,14 @@
         {
             "name":"worker",
             "image":"abhishek1984/multi-worker",
-            "container":"worker",
+            "hostname":"worker",
             "essential": false,
             "memory": 128
         },
         {
             "name":"nginx",
             "image":"abhishek1984/multi-nginx",
-            "container":"nginx",
+            "hostname":"nginx",
             "essential": true,
             "portMappings":[
                 {
