@@ -1,0 +1,31 @@
+Instance id i-095da5bfe6344b415
+
+Public DNS ec2-3-133-240-198.us-east-2.compute.amazonaws.com
+
+How to access ec2
+
+Generate Key - from EC2 console - Enter name and save - A private key would be downloaded.
+Set Read only permission to Private and save it safely somewhere or else you will lose access to EC2
+Permission command -
+
+chmod 400 path_to_pem_file_downloaded.
+
+Generate the public key from downloaded private key .pem 
+
+The commands would fail if right Readonly permission are not set on .pem file
+
+ssh-keygen -y -f /path_to_key_pair/my-key-pair.pem
+
+
+Verify if the fingerprint from downloaded pem matches the fingerprint on the console
+Generate fingerprint from private key downloaded
+
+$ openssl pkcs8 -in path_to_private_key -inform PEM -outform DER -topk8 -nocrypt | openssl sha1 -c
+
+Enable inbound traffic by editing the security group attached to instance 
+For SSH access enable port 22 (filled automatic when u select ssh and then fill My IP)
+
+Connect to instance
+ssh -i /path/my-key-pair.pem ec2-user@ec2-3-133-240-198.us-east-2.compute.amazonaws.com
+
+ssh -i /Abhishek/AWS/multi-docker.pem ec2-user@ec2-3-133-240-198.us-east-2.compute.amazonaws.com
