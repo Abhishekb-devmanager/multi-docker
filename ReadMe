@@ -28,4 +28,11 @@ For SSH access enable port 22 (filled automatic when u select ssh and then fill 
 Connect to instance
 ssh -i /path/my-key-pair.pem ec2-user@ec2-3-133-240-198.us-east-2.compute.amazonaws.com
 
-ssh -i /Abhishek/AWS/multi-docker.pem ec2-user@ec2-3-133-240-198.us-east-2.compute.amazonaws.com
+
+
+About DOCKERRUN.AWS.JSON - 
+
+(https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html)
+Version 1 of the Dockerrun.aws.json format is used to launch a single Docker container 
+to an Elastic Beanstalk environment. Version 2 adds support for multiple containers per 
+Amazon EC2 instance and can only be used with the multicontainer Docker platform. 
